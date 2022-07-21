@@ -64,11 +64,11 @@ addNote();
         <!-- ナビゲーション メニュー -->
         <div class="d-flex h-100">
           <v-list class="d-flex flex-column h-100">
-            <v-list-item @click="addNote">
-              <v-list-item-icon icon="mdi-creation" />
-            </v-list-item>
             <v-list-item @click="toggleList">
               <v-list-item-icon icon="mdi-note-multiple-outline" />
+            </v-list-item>
+            <v-list-item @click="addNote">
+              <v-list-item-icon icon="mdi-creation" />
             </v-list-item>
             <v-list-item
               class="mt-auto"
