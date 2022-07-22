@@ -89,6 +89,7 @@ addNote();
             density="compact"
             item-title="text"
             item-value="id"
+            :mandatory="true"
           />
           <v-divider class="mx-0" vertical />
         </div>
