@@ -22,7 +22,6 @@ const text = computed({
     if(note.text == ""){
       note.text = "Empty"
     }
-    console.log(counter);
     return note.text;
   },
   set(newValue) {
