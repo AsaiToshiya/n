@@ -19,9 +19,6 @@ const text = computed({
   get() {
     const id = selected.value[0];
     const note = notes.value.find((x) => x.id === id);
-    if(note.text == ""){
-      note.text = "Empty"
-    }
     return note.text;
   },
   set(newValue) {
