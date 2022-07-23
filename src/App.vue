@@ -24,7 +24,7 @@ const text = computed({
   set(newValue) {
     const id = selected.value[0];
     const index = notes.value.findIndex((x) => x.id === id);
-    const newNote = { id, text: newValue };
+    const newNote = { id, text: newValue, noteName: newValue.trim() ? newValue : "Empty" };
     notes.value = [
       newNote,
       ...notes.value.slice(0, index),
@@ -45,7 +45,7 @@ watch([isListShow, selected], async () => {
 
 const addNote = () => {
   const id = Math.random().toString(36).slice(2);
-  const newNote = { id, text: "" };
+  const newNote = { id, text: "", noteName: "Empty"};
   notes.value = [newNote, ...notes.value].slice(0, MAX_NOTE_COUNT);
   selected.value = [id];
 };
@@ -87,7 +87,7 @@ addNote();
             :items="notes"
             class="d-flex flex-column list"
             density="compact"
-            item-title="text"
+            item-title="noteName"
             item-value="id"
             :mandatory="true"
           />
