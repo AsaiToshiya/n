@@ -65,6 +65,12 @@ function App() {
   // メソッド ハンドラー
 
   const addNote = () => {
+    if(notes.length >0){
+      if (notes[0].noteName === "Empty"){
+        textarea.current.focus();
+        return;
+      }
+    }
     const id = Math.random().toString(36).slice(2);
     const newNote = { id, text: "", noteName: "Empty" };
     setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
