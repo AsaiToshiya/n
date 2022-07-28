@@ -66,7 +66,7 @@ function App() {
 
   const addNote = () => {
     if(notes.length >0){
-      if (notes[0].noteName === "Empty"){
+      if (notes[0].text.trim() === ""){
         textarea.current.focus();
         return;
       }
