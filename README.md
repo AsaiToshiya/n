@@ -11,6 +11,11 @@ https://AsaiToshiya.github.io/n
 入力したメモは、ブラウザーの localStorage に自動的に保存され、100 件を超えると、古いメモから順に削除されます。
 
 
+## 技術スタック
+
+React + Ant Design + Vite
+
+
 ## ライセンス
 
     MIT License

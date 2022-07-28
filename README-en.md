@@ -11,6 +11,11 @@ https://AsaiToshiya.github.io/n
 Typed note is automatically saved in the browser's localStorage, and the oldest note will be deleted when the number exceeds 100.
 
 
+## Technology stack
+
+React + Ant Design + Vite
+
+
 ## License
 
     MIT License
