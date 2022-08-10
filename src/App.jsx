@@ -109,8 +109,6 @@ function App() {
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
 
-  const handleClick = ({ key }) => clickHandlers[key]();
-
   return (
     <div className="App">
       {/* メニュー */}
@@ -119,7 +117,7 @@ function App() {
         inlineCollapsed={true}
         items={menuItems}
         mode="inline"
-        onClick={handleClick}
+        onClick={({ key }) => clickHandlers[key]()}
         selectable={false}
       />
 
