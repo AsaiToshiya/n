@@ -39,13 +39,6 @@ function App() {
   );
   const [selectedKeys, setSelectedKeys] = useState([]);
 
-  // 変数
-
-  const listItems = notes.map((note) => ({
-    label: note.text.trim() ? note.text : "Empty",
-    key: note.id,
-  }));
-
   // ref フック
 
   const textarea = useRef(null);
@@ -76,6 +69,11 @@ function App() {
     list: handleListClick,
     new: handleNewClick,
   };
+
+  const listItems = notes.map((note) => ({
+    label: note.text.trim() ? note.text : "Empty",
+    key: note.id,
+  }));
 
   // メモ フック
 
