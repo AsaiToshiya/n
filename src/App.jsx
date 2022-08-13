@@ -92,6 +92,12 @@ function App() {
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
 
+  useEffect(() => {
+    if (text) {
+      setNotes(notes.filter(({ text }) => text));
+    }
+  }, [selectedKeys]);
+
   // イベント ハンドラー
 
   const handleChange = (event) => {
