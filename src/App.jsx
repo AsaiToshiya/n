@@ -52,7 +52,8 @@ function App() {
     return newNote;
   };
 
-  const handleGithubClick = () => window.open("https://github.com/AsaiToshiya/n");
+  const handleGithubClick = () =>
+    window.open("https://github.com/AsaiToshiya/n");
 
   const handleListClick = () => setListShow(!isListShow);
 
