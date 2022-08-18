@@ -72,7 +72,7 @@ function App() {
   };
 
   const listItems = notes.map((note) => ({
-    label: note.text.trim() ? note.text : "Empty",
+    label: note.text.trim() ? note.text : " ",
     key: note.id,
   }));
 
