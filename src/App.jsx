@@ -71,9 +71,9 @@ function App() {
     new: handleNewClick,
   };
 
-  const listItems = notes.map((note) => ({
-    label: note.text ? note.text : " ",
-    key: note.id,
+  const listItems = notes.map(({ text, id }) => ({
+    label: text ? text : " ",
+    key: id,
   }));
 
   // メモ フック
