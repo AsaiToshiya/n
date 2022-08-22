@@ -58,9 +58,9 @@ function App() {
   const handleListClick = () => setListShow(!isListShow);
 
   const handleNewClick = () => {
-    notes[0].text === ""
-      ? setSelectedKeys([notes[0].id])
-      : setSelectedKeys([addNote().id]);
+    const firstNote = notes[0];
+    const note = firstNote.text === "" ? firstNote : addNote();
+    setSelectedKeys([note.id]);
   };
 
   // 変数
