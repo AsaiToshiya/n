@@ -59,7 +59,7 @@ function App() {
 
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = firstNote.text === "" ? firstNote : addNote();
+    const note = !firstNote.text ? firstNote : addNote();
     setSelectedKeys([note.id]);
   };
 
