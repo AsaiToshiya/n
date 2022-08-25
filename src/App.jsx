@@ -114,6 +114,10 @@ function App() {
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
 
+  const handleSelect = ({ key }) => {
+    setSelectedKeys([key]);
+  };
+
   return (
     <div className="App">
       {/* メニュー */}
@@ -133,7 +137,7 @@ function App() {
             className="App-list-menu"
             items={listItems}
             mode="inline"
-            onSelect={({ key }) => setSelectedKeys([key])}
+            onSelect={handleSelect}
             selectedKeys={selectedKeys}
           />
         </div>
