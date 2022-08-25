@@ -93,6 +93,12 @@ function App() {
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
 
+  useEffect(() => {
+    const element = textarea.current.resizableTextArea.textArea;
+    element.scrollTop = 0;
+    element.setSelectionRange(0, 0);
+  }, [selectedKeys]);
+
   // イベント ハンドラー
 
   const handleChange = (event) => {
