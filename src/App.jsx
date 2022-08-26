@@ -60,13 +60,10 @@ function App() {
 
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = !firstNote.text
-      ? firstNote
-      : (() => {
-          const newNote = createNote();
-          setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
-          return newNote;
-        })();
+    const note = !firstNote.text ? firstNote : createNote();
+    if (firstNote !== note) {
+      setNotes([note, ...notes].slice(0, MAX_NOTE_COUNT));
+    }
     setSelectedKeys([note.id]);
   };
 
