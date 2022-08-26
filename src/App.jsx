@@ -87,9 +87,6 @@ function App() {
 
   const text = useMemo(() => {
     const id = selectedKeys[0];
-    if (!id) {
-      return "";
-    }
     const note = notes.find((x) => x.id === id);
     return note.text;
   }, [notes, selectedKeys]);
