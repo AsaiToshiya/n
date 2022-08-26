@@ -31,13 +31,13 @@ const menuItems = [
   },
 ];
 
+const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
+
 function App() {
   // ステート フック
 
   const [isListShow, setListShow] = useState(false);
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem(KEY_NOTES)) || []
-  );
+  const [notes, setNotes] = useState(storedNotes);
   const [selectedKeys, setSelectedKeys] = useState([]);
 
   // ref フック
