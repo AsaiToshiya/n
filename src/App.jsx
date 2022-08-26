@@ -33,6 +33,13 @@ const menuItems = [
 
 const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 
+// メソッド
+
+const createNote = () => {
+  const id = Math.random().toString(36).slice(2);
+  return { id, text: "" };
+};
+
 function App() {
   // ステート フック
 
@@ -47,8 +54,7 @@ function App() {
   // メソッド
 
   const prependNote = () => {
-    const id = Math.random().toString(36).slice(2);
-    const newNote = { id, text: "" };
+    const newNote = createNote();
     setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
     return newNote;
   };
