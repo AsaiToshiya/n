@@ -45,7 +45,7 @@ function App() {
 
   // メソッド
 
-  const addNote = () => {
+  const prependNote = () => {
     const id = Math.random().toString(36).slice(2);
     const newNote = { id, text: "" };
     setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
@@ -59,7 +59,7 @@ function App() {
 
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = !firstNote.text ? firstNote : addNote();
+    const note = !firstNote.text ? firstNote : prependNote();
     setSelectedKeys([note.id]);
   };
 
@@ -89,7 +89,7 @@ function App() {
 
   // 副作用フック
 
-  useEffect(() => setSelectedKeys([addNote().id]), []);
+  useEffect(() => setSelectedKeys([prependNote().id]), []);
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
 
