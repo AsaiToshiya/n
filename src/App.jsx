@@ -11,8 +11,18 @@ const KEY_NOTES = "notes";
 const MAX_NOTE_COUNT = 100;
 const REPO_URL = "https://github.com/AsaiToshiya/n";
 
+// メソッド
+
+const createNote = () => {
+  const id = Math.random().toString(36).slice(2);
+  return { id, text: "" };
+};
+
 // 変数
 
+const initialNote = createNote();
+const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
+const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
 const menuItems = [
   {
     key: "list",
@@ -35,10 +45,8 @@ function App() {
   // ステート フック
 
   const [isListShow, setListShow] = useState(false);
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem(KEY_NOTES)) || []
-  );
-  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [notes, setNotes] = useState(initialNotes);
+  const [selectedKeys, setSelectedKeys] = useState([initialNote.id]);
 
   // ref フック
 
@@ -46,20 +54,16 @@ function App() {
 
   // メソッド
 
-  const prependNote = () => {
-    const id = Math.random().toString(36).slice(2);
-    const newNote = { id, text: "" };
-    setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
-    return newNote;
-  };
-
   const handleGithubClick = () => window.open(REPO_URL);
 
   const handleListClick = () => setListShow(!isListShow);
 
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = !firstNote.text ? firstNote : prependNote();
+    const note = !firstNote.text ? firstNote : createNote();
+    if (firstNote !== note) {
+      setNotes([note, ...notes].slice(0, MAX_NOTE_COUNT));
+    }
     setSelectedKeys([note.id]);
   };
 
@@ -80,19 +84,11 @@ function App() {
 
   const text = useMemo(() => {
     const id = selectedKeys[0];
-    if (!id) {
-      return "";
-    }
     const note = notes.find((x) => x.id === id);
     return note.text;
   }, [notes, selectedKeys]);
 
   // 副作用フック
-
-  useEffect(() => {
-    const note = prependNote();
-    setSelectedKeys([note.id]);
-  }, []);
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
 
