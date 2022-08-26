@@ -89,7 +89,10 @@ function App() {
 
   // 副作用フック
 
-  useEffect(() => setSelectedKeys([prependNote().id]), []);
+  useEffect(() => {
+    const note = prependNote();
+    setSelectedKeys([note.id]);
+  }, []);
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
 
