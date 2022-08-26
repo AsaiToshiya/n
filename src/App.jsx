@@ -55,9 +55,7 @@ function App() {
   // メソッド
 
   const handleGithubClick = () => window.open(REPO_URL);
-
   const handleListClick = () => setListShow(!isListShow);
-
   const handleNewClick = () => {
     const firstNote = notes[0];
     const note = !firstNote.text ? firstNote : createNote();
@@ -74,7 +72,6 @@ function App() {
     list: handleListClick,
     new: handleNewClick,
   };
-
   const listItems = notes.map(({ text, id }) => ({
     label: text ? text : " ",
     key: id,
@@ -91,7 +88,6 @@ function App() {
   // 副作用フック
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
-
   useEffect(() => {
     const element = textarea.current.resizableTextArea.textArea;
     element.scrollTop = 0;
@@ -112,7 +108,6 @@ function App() {
     setNotes(newNotes);
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
-
   const handleSelect = ({ key }) => {
     setNotes(notes.filter(({ text }) => text));
     setSelectedKeys([key]);
