@@ -9,6 +9,7 @@ const { TextArea } = Input;
 
 const KEY_NOTES = "notes";
 const MAX_NOTE_COUNT = 100;
+const REPO_URL = "https://github.com/AsaiToshiya/n";
 
 // 変数
 
@@ -52,8 +53,7 @@ function App() {
     return newNote;
   };
 
-  const handleGithubClick = () =>
-    window.open("https://github.com/AsaiToshiya/n");
+  const handleGithubClick = () => window.open(REPO_URL);
 
   const handleListClick = () => setListShow(!isListShow);
 
