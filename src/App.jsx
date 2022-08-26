@@ -54,19 +54,19 @@ function App() {
 
   // メソッド
 
-  const prependNote = () => {
-    const newNote = createNote();
-    setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
-    return newNote;
-  };
-
   const handleGithubClick = () => window.open(REPO_URL);
 
   const handleListClick = () => setListShow(!isListShow);
 
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = !firstNote.text ? firstNote : prependNote();
+    const note = !firstNote.text
+      ? firstNote
+      : (() => {
+          const newNote = createNote();
+          setNotes([newNote, ...notes].slice(0, MAX_NOTE_COUNT));
+          return newNote;
+        })();
     setSelectedKeys([note.id]);
   };
 
