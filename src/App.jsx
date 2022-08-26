@@ -40,12 +40,17 @@ const createNote = () => {
   return { id, text: "" };
 };
 
+// 変数
+
+const initialNote = createNote();
+const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
+
 function App() {
   // ステート フック
 
   const [isListShow, setListShow] = useState(false);
-  const [notes, setNotes] = useState(storedNotes);
-  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [notes, setNotes] = useState(initialNotes);
+  const [selectedKeys, setSelectedKeys] = useState([initialNote.id]);
 
   // ref フック
 
@@ -94,11 +99,6 @@ function App() {
   }, [notes, selectedKeys]);
 
   // 副作用フック
-
-  useEffect(() => {
-    const note = prependNote();
-    setSelectedKeys([note.id]);
-  }, []);
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
 
