@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Menu, Input } from "antd";
-import { PlusOutlined, MenuOutlined, GithubOutlined } from "@ant-design/icons";
+import { GithubOutlined, MenuOutlined, PlusOutlined } from "@ant-design/icons";
 import "./App.css";
 
 const { TextArea } = Input;
