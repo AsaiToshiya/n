@@ -58,7 +58,7 @@ function App() {
   const handleListClick = () => setListShow(!isListShow);
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = !firstNote.text ? firstNote : createNote();
+    const note = firstNote.text ? createNote() : firstNote;
     if (firstNote !== note) {
       setNotes([note, ...notes].slice(0, MAX_NOTE_COUNT));
     }
