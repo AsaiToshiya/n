@@ -25,18 +25,18 @@ const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
 const menuItems = [
   {
-    key: "list",
     icon: <MenuOutlined />,
+    key: "list",
     title: "List",
   },
   {
-    key: "new",
     icon: <PlusOutlined />,
+    key: "new",
     title: "New",
   },
   {
-    key: "github",
     icon: <GithubOutlined />,
+    key: "github",
     title: "GitHub",
   },
 ];
