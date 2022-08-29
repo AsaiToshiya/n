@@ -60,7 +60,8 @@ function App() {
     const firstNote = notes[0];
     const note = firstNote.text ? createNote() : firstNote;
     if (firstNote !== note) {
-      setNotes([note, ...notes].slice(0, MAX_NOTE_COUNT));
+      const newNotes = [note, ...notes].slice(0, MAX_NOTE_COUNT);
+      setNotes(newNotes);
     }
     setSelectedKeys([note.id]);
   };
