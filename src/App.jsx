@@ -50,6 +50,7 @@ function App() {
 
   // ref フック
 
+  const list = useRef(null);
   const textarea = useRef(null);
 
   // メソッド
@@ -61,6 +62,7 @@ function App() {
     const newNotes = [...note, ...notes].slice(0, MAX_NOTE_COUNT);
     setNotes(newNotes);
     setSelectedKeys([newNotes[0].id]);
+    list.current.scrollTop = 0;
   };
 
   // 変数
@@ -125,7 +127,7 @@ function App() {
 
       {/* メモ リスト */}
       {isListShow && (
-        <div className="App-list">
+        <div className="App-list" ref={list}>
           <Menu
             className="App-list-menu"
             items={listItems}
