@@ -58,12 +58,10 @@ function App() {
   const handleListClick = () => setListShow(!isListShow);
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = firstNote.text ? createNote() : firstNote;
-    if (firstNote !== note) {
-      const newNotes = [note, ...notes].slice(0, MAX_NOTE_COUNT);
-      setNotes(newNotes);
-    }
-    setSelectedKeys([note.id]);
+    const note = firstNote.text ? [createNote()] : [];
+    const newNotes = [...note, ...notes].slice(0, MAX_NOTE_COUNT);
+    setNotes(newNotes);
+    setSelectedKeys([newNotes[0].id]);
   };
 
   // 変数
