@@ -73,7 +73,7 @@ function App() {
     new: handleNewClick,
   };
   const listItems = notes.map(({ text, id }) => ({
-    label: text ? text : "",
+    label: text,
     key: id,
   }));
 
