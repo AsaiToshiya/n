@@ -9,7 +9,7 @@ const { TextArea } = Input;
 
 const KEY_NOTES = "notes";
 const MAX_NOTE_COUNT = 100;
-const REPO_URL = "https://github.com/AsaiToshiya/n/";
+const REPO_URL = "https://github.com/AsaiToshiya/n";
 
 // メソッド
 
