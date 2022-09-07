@@ -102,8 +102,8 @@ function App() {
 
   const handleChange = (event) => {
     const id = selectedKeys[0];
-    const newNote = { id, text: event.target.value };
-    const newNotes = prependNote(notes, newNote);
+    const note = { id, text: event.target.value };
+    const newNotes = prependNote(notes, note);
     setNotes(newNotes);
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
