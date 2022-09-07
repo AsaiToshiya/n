@@ -19,6 +19,7 @@ const createNote = () => {
 };
 const prependNote = (notes, note) =>
   [note, ...notes.filter((x) => x.id !== note.id)].slice(0, MAX_NOTE_COUNT);
+const removeEmptyNotes = (notes) => notes.filter(({ text }) => text);
 
 // 変数
 
@@ -107,7 +108,7 @@ function App() {
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
   const handleSelect = ({ key }) => {
-    setNotes(notes.filter(({ text }) => text));
+    setNotes(removeEmptyNotes);
     setSelectedKeys([key]);
   };
 
