@@ -58,7 +58,8 @@ function App() {
   const handleGithubClick = () => window.open(REPO_URL);
   const handleListClick = () => setListShow(!isListShow);
   const handleNewClick = () => {
-    const note = notes[0].text ? [createNote()] : [];
+    const firstNote = notes[0];
+    const note = firstNote.text ? [createNote()] : [];
     const newNotes = [...note, ...notes].slice(0, MAX_NOTE_COUNT);
     setNotes(newNotes);
     setSelectedKeys([newNotes[0].id]);
