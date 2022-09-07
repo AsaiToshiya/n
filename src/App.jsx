@@ -17,6 +17,8 @@ const createNote = () => {
   const id = Math.random().toString(36).slice(2);
   return { id, text: "" };
 };
+const prependNote = (notes, note) =>
+  [note, ...notes.filter((x) => x.id !== note.id)].slice(0, MAX_NOTE_COUNT);
 
 // 変数
 
@@ -60,10 +62,7 @@ function App() {
   const handleNewClick = () => {
     const firstNote = notes[0];
     const note = firstNote.text === "" ? firstNote : createNote();
-    const newNotes = [note, ...notes.filter((x) => x.id !== note.id)].slice(
-      0,
-      MAX_NOTE_COUNT
-    );
+    const newNotes = prependNote(notes, note);
     setNotes(newNotes);
     setSelectedKeys([note.id]);
     list.current.scrollTop = 0;
