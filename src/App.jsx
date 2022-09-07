@@ -59,8 +59,11 @@ function App() {
   const handleListClick = () => setListShow(!isListShow);
   const handleNewClick = () => {
     const firstNote = notes[0];
-    const note = firstNote.text === "" ? [] : [createNote()];
-    const newNotes = [...note, ...notes].slice(0, MAX_NOTE_COUNT);
+    const note = firstNote.text === "" ? firstNote : createNote();
+    const newNotes = [note, ...notes.filter((x) => x.id !== note.id)].slice(
+      0,
+      MAX_NOTE_COUNT
+    );
     setNotes(newNotes);
     setSelectedKeys([newNotes[0].id]);
     list.current.scrollTop = 0;
