@@ -102,7 +102,7 @@ function App() {
   const handleChange = (event) => {
     const id = selectedKeys[0];
     const newNote = { id, text: event.target.value };
-    const newNotes = [newNote, ...notes.filter((x) => x.id !== id)];
+    const newNotes = prependNote(notes, newNote);
     setNotes(newNotes);
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
