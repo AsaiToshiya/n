@@ -4,7 +4,7 @@
 
 N is an extremely simple notepad.
 
-https://AsaiToshiya.github.io/n
+https://AsaiToshiya.github.io/n/
 
 <a href="screenshot1.png"><img src="screenshot1.png" width="48%"/></a>
 <a href="screenshot2.png"><img src="screenshot2.png" width="48%"/></a>
