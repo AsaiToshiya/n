@@ -65,7 +65,7 @@ function App() {
       MAX_NOTE_COUNT
     );
     setNotes(newNotes);
-    setSelectedKeys([newNotes[0].id]);
+    setSelectedKeys([note.id]);
     list.current.scrollTop = 0;
   };
 
