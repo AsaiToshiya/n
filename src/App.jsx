@@ -15,8 +15,10 @@ const createNote = () => {
   const id = Math.random().toString(36).slice(2);
   return { id, text: "" };
 };
-const prependNote = (notes, note) =>
-  [note, ...notes.filter((x) => x.id !== note.id)].slice(0, MAX_NOTE_COUNT);
+const prependNote = (notes, note) => {
+  const uniqueNotes = [note, ...notes.filter((x) => x.id !== note.id)];
+  return uniqueNotes.slice(0, MAX_NOTE_COUNT);
+};
 const removeEmptyNotes = (notes) => notes.filter(({ text }) => text);
 
 // 変数
