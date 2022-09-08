@@ -33,44 +33,19 @@ function App() {
   const [isListShow, setListShow] = useState(false);
   const [notes, setNotes] = useState(initialNotes);
   const [selectedKeys, setSelectedKeys] = useState([initialNote.id]);
-
-  // ref フック
-
   const list = useRef(null);
   const textarea = useRef(null);
-
-  // メソッド
-
-  const handleGithubClick = () => window.open(REPO_URL);
-  const handleListClick = () => setListShow(!isListShow);
-  const handleNewClick = () => {
-    const firstNote = notes[0];
-    const note = firstNote.text === "" ? firstNote : createNote();
-    const newNotes = prependNote(notes, note);
-    setNotes(newNotes);
-    setSelectedKeys([note.id]);
-    list.current.scrollTop = 0;
-  };
-
-  // 変数
-
-  const clickHandlers = {
-    github: handleGithubClick,
-    list: handleListClick,
-    new: handleNewClick,
-  };
-  const listItems = notes.map(({ text, id }) => ({
-    label: text,
-    key: id,
-  }));
-
-  // メモ フック
-
   const text = useMemo(() => {
     const id = selectedKeys[0];
     const note = notes.find((x) => x.id === id);
     return note.text;
   }, [notes, selectedKeys]);
+
+  // ref フック
+
+  // メソッド
+
+  // メモ フック
 
   // 副作用フック
 
@@ -90,10 +65,32 @@ function App() {
     setNotes(newNotes);
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
+  const handleGithubClick = () => window.open(REPO_URL);
+  const handleListClick = () => setListShow(!isListShow);
+  const handleNewClick = () => {
+    const firstNote = notes[0];
+    const note = firstNote.text === "" ? firstNote : createNote();
+    const newNotes = prependNote(notes, note);
+    setNotes(newNotes);
+    setSelectedKeys([note.id]);
+    list.current.scrollTop = 0;
+  };
   const handleSelect = ({ key }) => {
     setNotes(removeEmptyNotes);
     setSelectedKeys([key]);
   };
+
+  // 変数
+
+  const clickHandlers = {
+    github: handleGithubClick,
+    list: handleListClick,
+    new: handleNewClick,
+  };
+  const listItems = notes.map(({ text, id }) => ({
+    label: text,
+    key: id,
+  }));
 
   return (
     <div className="App">
