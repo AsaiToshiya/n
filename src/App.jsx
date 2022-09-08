@@ -6,13 +6,11 @@ import "./App.css";
 const { TextArea } = Input;
 
 // 定数
-
 const KEY_NOTES = "notes";
 const MAX_NOTE_COUNT = 100;
 const REPO_URL = "https://github.com/AsaiToshiya/n";
 
 // メソッド
-
 const createNote = () => {
   const id = Math.random().toString(36).slice(2);
   return { id, text: "" };
@@ -22,14 +20,12 @@ const prependNote = (notes, note) =>
 const removeEmptyNotes = (notes) => notes.filter(({ text }) => text);
 
 // 変数
-
 const initialNote = createNote();
 const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
 
 function App() {
   // ステート フック、ref フック、メモ フック
-
   const [isListShow, setListShow] = useState(false);
   const [notes, setNotes] = useState(initialNotes);
   const [selectedKeys, setSelectedKeys] = useState([initialNote.id]);
@@ -42,7 +38,6 @@ function App() {
   }, [notes, selectedKeys]);
 
   // 副作用フック
-
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
   useEffect(() => {
     const element = textarea.current.resizableTextArea.textArea;
@@ -51,7 +46,6 @@ function App() {
   }, [selectedKeys]);
 
   // イベント ハンドラー
-
   const handleChange = (event) => {
     const id = selectedKeys[0];
     const note = { id, text: event.target.value };
@@ -75,7 +69,6 @@ function App() {
   };
 
   // 変数
-
   const clickHandlers = {
     github: handleGithubClick,
     list: handleListClick,
