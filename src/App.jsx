@@ -30,11 +30,11 @@ function App() {
   // ステート フック、ref フック、メモ フック
   const [isListShow, setListShow] = useState(false);
   const [notes, setNotes] = useState(initialNotes);
-  const [selectedKeys, setSelectedKeys] = useState([initialNote.id]);
+  const [selectedKeys, setSelectedKeys] = useState(initialNote.id);
   const list = useRef(null);
   const textarea = useRef(null);
   const text = useMemo(() => {
-    const id = selectedKeys[0];
+    const id = selectedKeys;
     const note = notes.find((x) => x.id === id);
     return note.text;
   }, [notes, selectedKeys]);
@@ -49,7 +49,7 @@ function App() {
 
   // イベント ハンドラー
   const handleChange = (event) => {
-    const id = selectedKeys[0];
+    const id = selectedKeys;
     const note = { id, text: event.target.value };
     const newNotes = prependNote(notes, note);
     setNotes(newNotes);
@@ -62,12 +62,12 @@ function App() {
     const note = firstNote.text === "" ? firstNote : createNote();
     const newNotes = prependNote(notes, note);
     setNotes(newNotes);
-    setSelectedKeys([note.id]);
+    setSelectedKeys(note.id);
     list.current.scrollTop = 0;
   };
   const handleSelect = ({ key }) => {
     setNotes(removeEmptyNotes);
-    setSelectedKeys([key]);
+    setSelectedKeys(key);
   };
 
   // 変数
@@ -117,7 +117,7 @@ function App() {
             items={listItems}
             mode="inline"
             onSelect={handleSelect}
-            selectedKeys={selectedKeys}
+            selectedKeys={[selectedKeys]}
           />
         </div>
       )}
