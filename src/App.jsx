@@ -28,7 +28,7 @@ const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
 
 function App() {
-  // ステート フック
+  // ステート フック、ref フック、メモ フック
 
   const [isListShow, setListShow] = useState(false);
   const [notes, setNotes] = useState(initialNotes);
