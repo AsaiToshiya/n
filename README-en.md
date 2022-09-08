@@ -2,7 +2,7 @@
 
 # N
 
-N is an extremely simple notepad.
+N is ultra simple notepad.
 
 https://AsaiToshiya.github.io/n/
 
