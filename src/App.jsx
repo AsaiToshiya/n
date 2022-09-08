@@ -41,12 +41,6 @@ function App() {
     return note.text;
   }, [notes, selectedKeys]);
 
-  // ref フック
-
-  // メソッド
-
-  // メモ フック
-
   // 副作用フック
 
   useEffect(() => textarea.current.focus(), [isListShow, selectedKeys]);
