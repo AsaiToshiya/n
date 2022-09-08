@@ -26,23 +26,6 @@ const removeEmptyNotes = (notes) => notes.filter(({ text }) => text);
 const initialNote = createNote();
 const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
-const menuItems = [
-  {
-    icon: <MenuOutlined />,
-    key: "list",
-    title: "List",
-  },
-  {
-    icon: <PlusOutlined />,
-    key: "new",
-    title: "New",
-  },
-  {
-    icon: <GithubOutlined />,
-    key: "github",
-    title: "GitHub",
-  },
-];
 
 function App() {
   // ステート フック
@@ -118,7 +101,23 @@ function App() {
       <Menu
         className="App-menu"
         inlineCollapsed={true}
-        items={menuItems}
+        items={[
+          {
+            icon: <MenuOutlined />,
+            key: "list",
+            title: "List",
+          },
+          {
+            icon: <PlusOutlined />,
+            key: "new",
+            title: "New",
+          },
+          {
+            icon: <GithubOutlined />,
+            key: "github",
+            title: "GitHub",
+          },
+        ]}
         mode="inline"
         onClick={({ key }) => clickHandlers[key]()}
         selectable={false}
