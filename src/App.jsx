@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Menu, Input } from "antd";
+import { Input, Menu } from "antd";
 import { GithubOutlined, MenuOutlined, PlusOutlined } from "@ant-design/icons";
 import "./App.css";
 
