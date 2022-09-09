@@ -24,7 +24,7 @@ const removeEmptyNotes = (notes) => notes.filter(({ text }) => text);
 // 変数
 const initialNote = createNote();
 const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
-const initialNotes = [initialNote, ...storedNotes].slice(0, MAX_NOTE_COUNT);
+const initialNotes = prependNote(storedNotes, initialNote);
 
 function App() {
   // ステート フック、ref フック、メモ フック
