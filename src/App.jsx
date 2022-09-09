@@ -15,6 +15,11 @@ const createNote = () => {
   const id = Math.random().toString(36).slice(2);
   return { id, text: "" };
 };
+const prependEmptyNote = (notes) => {
+  const firstNote = notes[0];
+  const note = firstNote.text === "" ? firstNote : createNote();
+  return prependNote(notes, note);
+};
 const prependNote = (notes, note) => {
   const uniqueNotes = [note, ...notes.filter((x) => x.id !== note.id)];
   return uniqueNotes.slice(0, MAX_NOTE_COUNT);
@@ -58,11 +63,9 @@ function App() {
   const handleGithubClick = () => window.open(REPO_URL);
   const handleListClick = () => setListShow(!isListShow);
   const handleNewClick = () => {
-    const firstNote = notes[0];
-    const note = firstNote.text === "" ? firstNote : createNote();
-    const newNotes = prependNote(notes, note);
+    const newNotes = prependEmptyNote(notes);
     setNotes(newNotes);
-    setSelectedNoteId(note.id);
+    setSelectedNoteId(newNotes[0].id);
     list.current.scrollTop = 0;
   };
   const handleSelect = ({ key }) => {
