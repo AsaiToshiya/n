@@ -39,8 +39,7 @@ function App() {
   const list = useRef(null);
   const textarea = useRef(null);
   const text = useMemo(() => {
-    const id = selectedNoteId;
-    const note = notes.find((x) => x.id === id);
+    const note = notes.find((x) => x.id === selectedNoteId);
     return note.text;
   }, [notes, selectedNoteId]);
 
@@ -54,8 +53,7 @@ function App() {
 
   // イベント ハンドラー
   const handleChange = (event) => {
-    const id = selectedNoteId;
-    const note = { id, text: event.target.value };
+    const note = { id: selectedNoteId, text: event.target.value };
     const newNotes = prependNote(notes, note);
     setNotes(newNotes);
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
