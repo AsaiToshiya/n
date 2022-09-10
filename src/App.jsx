@@ -47,7 +47,7 @@ function App() {
   useEffect(() => textarea.current.focus(), [isListShow, selectedNoteId]);
   useEffect(() => {
     const element = textarea.current.resizableTextArea.textArea;
-    element.scrollTop = 0;
+    element.scrollTo({ top: 0 });
     element.setSelectionRange(0, 0);
   }, [selectedNoteId]);
 
@@ -64,7 +64,7 @@ function App() {
     const newNotes = prependEmptyNote(notes);
     setNotes(newNotes);
     setSelectedNoteId(newNotes[0].id);
-    list.current.scrollTop = 0;
+    list.current.scrollTo({ top: 0 });
   };
   const handleSelect = ({ key }) => {
     setNotes(removeEmptyNotes);
