@@ -57,6 +57,7 @@ function App() {
     const note = { id: selectedNoteId, text: event.target.value };
     const newNotes = prependNote(notes, note);
     setNotes(newNotes);
+    list.current?.scrollTo({ top: 0 });
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
   const handleGithubClick = () => window.open(REPO_URL);
