@@ -65,9 +65,7 @@ function App() {
     const newNotes = prependEmptyNote(notes);
     setNotes(newNotes);
     setSelectedNoteId(newNotes[0].id);
-    const canScroll = list.current !== null;
-    const element = canScroll ? list.current : null;
-    element?.scrollTo({ top: 0 });
+    list.current?.scrollTo({ top: 0 });
   };
   const handleSelect = ({ key }) => {
     setNotes(removeEmptyNotes);
