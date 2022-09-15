@@ -44,10 +44,9 @@ function App() {
   }, [notes, selectedNoteId]);
 
   // 副作用フック
-  useEffect(() => textarea.current.focus(), [isListShow]);
+  useEffect(() => textarea.current.focus());
   useEffect(() => {
     const element = textarea.current.resizableTextArea.textArea;
-    element.focus();
     element.scrollTo({ top: 0 });
     element.setSelectionRange(0, 0);
   }, [selectedNoteId]);
