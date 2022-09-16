@@ -47,7 +47,7 @@ function App() {
   useEffect(() => textarea.current.focus());
   useEffect(() => {
     const element = textarea.current.resizableTextArea.textArea;
-    element.scrollTo({ top: 0 });
+    element.scrollTo(0, 0);
     element.setSelectionRange(0, 0);
   }, [selectedNoteId]);
 
