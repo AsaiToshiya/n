@@ -31,7 +31,7 @@ const initialNote = createNote();
 const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 const initialNotes = prependNote(storedNotes, initialNote);
 
-function App() {
+function App({ options }) {
   // ステート フック、ref フック、メモ フック
   const [isListShow, setListShow] = useState(false);
   const [notes, setNotes] = useState(initialNotes);
@@ -130,6 +130,7 @@ function App() {
         className="App-text"
         onChange={handleChange}
         ref={textarea}
+        style={options}
         value={text}
       />
     </div>

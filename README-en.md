@@ -18,6 +18,12 @@ Typed note is automatically saved in the browser's localStorage, and the oldest 
 
 https://asaitoshiya.github.io/n/?theme=dark
 
+### Font Size
+
+https://asaitoshiya.github.io/n/?font-size=&lt;value&gt;
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values for valid values.
+
 
 ## Technology stack
 
