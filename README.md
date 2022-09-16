@@ -20,7 +20,7 @@ https://asaitoshiya.github.io/n/?theme=dark
 
 ### フォント サイズ
 
-https://asaitoshiya.github.io/n/?font-size=&lt;value&gt;
+https://asaitoshiya.github.io/n/?font-size=<value&gt;
 
 有効な値については、https://developer.mozilla.org/ja/docs/Web/CSS/font-size#%E5%80%A4 を参照してください。
 
