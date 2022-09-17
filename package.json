@@ -6,7 +6,8 @@
     "serve": "vite preview",
     "build": "vite build",
     "dev": "vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.jsx"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^2.1.0",
+    "eslint": "^8.23.1",
+    "eslint-plugin-functional": "^4.3.1",
     "vite": "^3.1.1"
   }
 }
