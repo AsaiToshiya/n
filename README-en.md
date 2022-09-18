@@ -26,7 +26,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values for valid 
 
 ### Font Family
 
-https://asaitoshiya.github.io/n/?font-size=<value&gt;
+https://asaitoshiya.github.io/n/?font-family=<value&gt;
 
 See https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values for valid values.
 
