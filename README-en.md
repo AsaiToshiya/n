@@ -24,6 +24,12 @@ https://asaitoshiya.github.io/n/?font-size=<value&gt;
 
 See https://developer.mozilla.org/en-US/docs/Web/CSS/font-size#values for valid values.
 
+### Font Family
+
+https://asaitoshiya.github.io/n/?font-size=<value&gt;
+
+See https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values for valid values.
+
 
 ## Technology stack
 

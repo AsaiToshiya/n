@@ -17,11 +17,14 @@ head.appendChild(link);
 // フォント サイズ
 const fontSize = searchParams.get("font-size") ?? undefined;
 
+// フォント ファミリー
+const fontFamily = searchParams.get("font-family") ?? undefined;
+
 link.onload = () => {
   const root = ReactDOM.createRoot(document.getElementById('app'));
   root.render(
     <React.StrictMode>
-      <App options={{ fontSize }} />
+      <App options={{ fontSize, fontFamily }} />
     </React.StrictMode>
   );
 };

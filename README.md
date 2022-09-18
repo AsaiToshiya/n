@@ -24,6 +24,12 @@ https://asaitoshiya.github.io/n/?font-size=<value&gt;
 
 有効な値については、https://developer.mozilla.org/ja/docs/Web/CSS/font-size#%E5%80%A4 を参照してください。
 
+### フォント ファミリー
+
+https://asaitoshiya.github.io/n/?font-family=<value&gt;
+
+有効な値については、https://developer.mozilla.org/ja/docs/Web/CSS/font-family#%E5%80%A4 を参照してください。
+
 
 ## 技術スタック
 
