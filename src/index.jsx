@@ -7,11 +7,23 @@ const searchParams = new URLSearchParams(window.location.search);
 // テーマ
 const theme = searchParams.get("theme");
 const isDark = theme === "dark";
-document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+document.documentElement.style.setProperty(
+  "color-scheme",
+  isDark ? "dark" : "light"
+);
 const head = document.getElementsByTagName("head")[0];
-const link = document.createElement("link");
-link.rel = "stylesheet";
-link.href = isDark ? "/n/antd.dark.min.css" : "/n/antd.min.css";
+const link = Object.assign(document.createElement("link"), {
+  rel: "stylesheet",
+  href: isDark ? "/n/antd.dark.min.css" : "/n/antd.min.css",
+  onload: () => {
+    const root = ReactDOM.createRoot(document.getElementById('app'));
+    root.render(
+      <React.StrictMode>
+        <App options={{ fontSize, fontFamily }} />
+      </React.StrictMode>
+    );
+  },
+});
 head.appendChild(link);
 
 // フォント サイズ
@@ -19,12 +31,3 @@ const fontSize = searchParams.get("font-size") ?? undefined;
 
 // フォント ファミリー
 const fontFamily = searchParams.get("font-family") ?? undefined;
-
-link.onload = () => {
-  const root = ReactDOM.createRoot(document.getElementById('app'));
-  root.render(
-    <React.StrictMode>
-      <App options={{ fontSize, fontFamily }} />
-    </React.StrictMode>
-  );
-};
