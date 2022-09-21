@@ -7,6 +7,7 @@ const { TextArea } = Input;
 
 // 定数
 const KEY_NOTES = "notes";
+const KEY_IS_LIST_SHOW = "isListShow";
 const MAX_NOTE_COUNT = 100;
 const REPO_URL = "https://github.com/AsaiToshiya/n";
 
@@ -27,13 +28,14 @@ const prependNote = (notes, note) => {
 const removeEmptyNotes = (notes) => notes.filter(({ text }) => text);
 
 // 変数
+const initialListShow = localStorage.getItem(KEY_IS_LIST_SHOW) === "true";
 const initialNote = createNote();
 const storedNotes = JSON.parse(localStorage.getItem(KEY_NOTES)) || [];
 const initialNotes = prependNote(storedNotes, initialNote);
 
 function App({ options }) {
   // ステート フック、ref フック、メモ フック
-  const [isListShow, setListShow] = useState(false);
+  const [isListShow, setListShow] = useState(initialListShow);
   const [notes, setNotes] = useState(initialNotes);
   const [selectedNoteId, setSelectedNoteId] = useState(initialNote.id);
   const list = useRef(null);
@@ -60,7 +62,10 @@ function App({ options }) {
     localStorage.setItem(KEY_NOTES, JSON.stringify(newNotes));
   };
   const handleGithubClick = () => window.open(REPO_URL);
-  const handleListClick = () => setListShow(!isListShow);
+  const handleListClick = () => {
+    setListShow(!isListShow);
+    localStorage.setItem(KEY_IS_LIST_SHOW, !isListShow);
+  };
   const handleNewClick = () => {
     const newNotes = prependEmptyNote(notes);
     setNotes(newNotes);
