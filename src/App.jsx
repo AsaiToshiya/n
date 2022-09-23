@@ -63,8 +63,9 @@ function App({ options }) {
   };
   const handleGithubClick = () => window.open(REPO_URL);
   const handleListClick = () => {
-    setListShow(!isListShow);
-    localStorage.setItem(KEY_IS_LIST_SHOW, !isListShow);
+    const newListShow = !isListShow;
+    setListShow(newListShow);
+    localStorage.setItem(KEY_IS_LIST_SHOW, newListShow);
   };
   const handleNewClick = () => {
     const newNotes = prependEmptyNote(notes);
