@@ -6,6 +6,13 @@ const searchParams = new URLSearchParams(window.location.search);
 
 // テーマ
 const theme = searchParams.get("theme");
+
+// フォント サイズ
+const fontSize = searchParams.get("font-size") ?? undefined;
+
+// フォント ファミリー
+const fontFamily = searchParams.get("font-family") ?? undefined;
+
 const isDark = theme === "dark";
 document.documentElement.style.setProperty(
   "color-scheme",
@@ -25,9 +32,3 @@ const link = Object.assign(document.createElement("link"), {
   },
 });
 head.appendChild(link);
-
-// フォント サイズ
-const fontSize = searchParams.get("font-size") ?? undefined;
-
-// フォント ファミリー
-const fontFamily = searchParams.get("font-family") ?? undefined;
