@@ -6,10 +6,8 @@ const searchParams = new URLSearchParams(window.location.search);
 
 // テーマ
 const theme = searchParams.get("theme");
-
 // フォント サイズ
 const fontSize = searchParams.get("font-size") ?? undefined;
-
 // フォント ファミリー
 const fontFamily = searchParams.get("font-family") ?? undefined;
 
