@@ -4,7 +4,7 @@ import App from './App';
 
 const searchParams = new URLSearchParams(window.location.search);
 
-// テーマ
+// オプション
 const theme = searchParams.get("theme");
 // フォント サイズ
 const fontSize = searchParams.get("font-size") ?? undefined;
