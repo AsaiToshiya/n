@@ -31,11 +31,6 @@ https://asaitoshiya.github.io/n/?font-family=<value&gt;
 See https://developer.mozilla.org/en-US/docs/Web/CSS/font-family#values for valid values.
 
 
-## Technology stack
-
-React + Ant Design + Vite
-
-
 ## License
 
     MIT License
