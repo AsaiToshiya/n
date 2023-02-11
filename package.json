@@ -16,9 +16,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@typescript-eslint/type-utils": ">=5.30.5",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.33.0",
     "eslint-plugin-functional": "^5.0.0",
+    "typescript": ">=4.7.4",
     "vite": "^4.1.1"
   }
 }
