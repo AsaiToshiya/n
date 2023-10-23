@@ -21,6 +21,6 @@
     "eslint": "^8.52.0",
     "eslint-plugin-functional": "^6.0.0",
     "typescript": ">=5.2.2",
-    "vite": "^4.4.2"
+    "vite": "^4.5.0"
   }
 }
