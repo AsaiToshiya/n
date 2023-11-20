@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/type-utils": ">=6.10.0",
-    "@vitejs/plugin-react": "^4.1.0",
+    "@vitejs/plugin-react": "^4.2.0",
     "eslint": "^8.53.0",
     "eslint-plugin-functional": "^6.0.0",
     "typescript": ">=5.2.2",
