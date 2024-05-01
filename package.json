@@ -19,7 +19,7 @@
     "@typescript-eslint/type-utils": ">=7.8.0",
     "@vitejs/plugin-react": "^4.2.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-functional": "^6.4.0",
+    "eslint-plugin-functional": "^6.5.1",
     "typescript": ">=5.4.3",
     "vite": "^5.2.7"
   }
